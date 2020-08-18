@@ -4,17 +4,17 @@ import os
 from time import sleep
 from urllib3 import disable_warnings
 from urllib3.exceptions import InsecureRequestWarning
+from colorama import Fore, Style, init
 disable_warnings(InsecureRequestWarning)
-from  colorama import Fore, Style, init
 init(autoreset=True)
 
 
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36'}
+
 try:
     os.makedirs('result', exist_ok=True)
 except:
     pass
-
 
 def check(url):
     url = url.lstrip('http')
@@ -22,8 +22,6 @@ def check(url):
         return True
     else:
         return False
-
-
 
 
 def google_url_scrap(data):
@@ -60,13 +58,11 @@ def query_submit(query):
                 break
 
 
-
 def google_grabber(search_value):
     start_range = ['0', '100', '200']
     for srange in start_range:
         query = "http://www.google.co.uk/search?q="+search_value+"&num=100&start="+srange+"&filter=1"
         query_submit(query)
-
 
 
 def main():
@@ -80,6 +76,7 @@ def main():
                                                                         
                                  {Fore.GREEN}Github{Style.RESET_ALL}: github.com/Hun73rCL4W/G-Grabb3r
 """)
+    
     filename = input('  Enter list of dork => ')
     dorks = open(filename).read().splitlines()
     for dork in dorks:
